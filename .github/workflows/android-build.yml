@@ -48,6 +48,15 @@ jobs:
           name: video-compress-debug-apk
           path: app/build/outputs/apk/debug/*.apk
 
+      - name: Assemble release APK (unsigned)
+        run: ./gradlew assembleRelease --stacktrace
+
+      - name: Upload release APK (unsigned)
+        uses: actions/upload-artifact@v4
+        with:
+          name: video-compress-release-apk-unsigned
+          path: app/build/outputs/apk/release/*.apk
+
       - name: Upload lint report
         if: always()
         uses: actions/upload-artifact@v4
