@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Video Compress</string>
+
+    <!-- Home screen -->
+    <string name="home_title">Сжатие видео</string>
+    <string name="add_videos">Добавить видео</string>
+    <string name="compress_all">Сжать всё (%1$d)</string>
+    <string name="queue_empty_title">Список пуст</string>
+    <string name="queue_empty_hint">Добавьте видео кнопкой ниже, откройте их через «Поделиться» из другого приложения, либо через «Открыть с помощью»</string>
+    <string name="output_folder_not_set">Папка для результата не выбрана</string>
+    <string name="output_folder_pick">Выбрать папку</string>
+    <string name="output_folder_label">Папка сохранения: %1$s</string>
+    <string name="status_queued">В очереди</string>
+    <string name="status_processing">Обработка… %1$d%%</string>
+    <string name="status_done">Готово</string>
+    <string name="status_error">Ошибка: %1$s</string>
+    <string name="action_share">Поделиться</string>
+    <string name="action_open">Открыть</string>
+    <string name="action_remove">Удалить</string>
+    <string name="action_retry">Повторить</string>
+    <string name="diagnostics_title">Диагностика кодеков</string>
+    <string name="settings_title">Настройки сжатия</string>
+
+    <!-- Settings sheet -->
+    <string name="setting_codec">Видеокодек</string>
+    <string name="setting_resolution">Разрешение</string>
+    <string name="setting_quality">Качество / битрейт</string>
+    <string name="setting_remove_audio">Удалить звук</string>
+    <string name="resolution_original">Как в оригинале</string>
+    <string name="quality_low">Низкое (меньше размер)</string>
+    <string name="quality_medium">Среднее</string>
+    <string name="quality_high">Высокое (лучше качество)</string>
+    <string name="quality_custom">Свой битрейт</string>
+    <string name="hw_badge">HW</string>
+    <string name="sw_badge">SW</string>
+    <string name="codec_unavailable">Нет доступных кодеков для этого формата на устройстве</string>
+
+    <!-- Diagnostics screen -->
+    <string name="diag_encoders">Энкодеры (сжатие)</string>
+    <string name="diag_decoders">Декодеры (воспроизведение)</string>
+    <string name="diag_show_all">Показывать все кодеки, включая нерекомендуемые</string>
+    <string name="diag_copy_report">Скопировать полный отчёт</string>
+    <string name="diag_report_copied">Отчёт скопирован в буфер обмена</string>
+    <string name="diag_hardware">Аппаратный</string>
+    <string name="diag_software">Программный</string>
+    <string name="diag_vendor">Производитель</string>
+    <string name="diag_bitrate_range">Диапазон битрейта</string>
+    <string name="diag_size_range">Разрешение</string>
+    <string name="diag_frame_rate">Частота кадров</string>
+    <string name="diag_max_instances">Макс. одновременных сессий</string>
+    <string name="diag_profiles">Профили / уровни</string>
+    <string name="diag_color_formats">Форматы цвета</string>
+
+    <!-- Notifications / service -->
+    <string name="notif_channel_name">Сжатие видео</string>
+    <string name="notif_channel_desc">Прогресс фоновой обработки видео</string>
+    <string name="notif_title_progress">Сжатие видео %1$d/%2$d</string>
+    <string name="notif_title_done">Сжатие завершено</string>
+    <string name="notif_text_done">Обработано файлов: %1$d</string>
+</resources>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+    <!-- Simple film-frame with an inward compression arrow -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M30,32 L78,32 A6,6 0 0 1 84,38 L84,70 A6,6 0 0 1 78,76 L30,76 A6,6 0 0 1 24,70 L24,38 A6,6 0 0 1 30,32 Z"
+        android:strokeColor="#FFFFFF"
+        android:strokeWidth="4"
+        android:fillAlpha="0" />
+    <path
+        android:fillColor="#8AB4F8"
+        android:pathData="M54,40 L54,48 M54,68 L54,60 M40,54 L48,54 M60,54 L68,54"
+        android:strokeColor="#8AB4F8"
+        android:strokeWidth="6"
+        android:strokeLineCap="round" />
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M54,44 L60,38 L60,42 L66,42 L66,46 L60,46 L60,50 Z M54,64 L48,70 L48,66 L42,66 L42,62 L48,62 L48,58 Z"
+    />
+</vector>
