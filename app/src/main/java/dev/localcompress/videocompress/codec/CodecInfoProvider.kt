@@ -76,7 +76,7 @@ object CodecInfoProvider {
             .distinct()
 
         val colorFormats = if (isVideo) {
-            capabilities.colorFormats.orEmpty().map { CodecFieldNames.colorFormatName(it) }.distinct()
+            capabilities.colorFormats?.map { CodecFieldNames.colorFormatName(it) }.orEmpty().distinct()
         } else emptyList()
 
         return CodecMimeCapability(

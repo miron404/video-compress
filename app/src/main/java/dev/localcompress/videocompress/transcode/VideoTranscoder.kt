@@ -15,6 +15,7 @@ import androidx.media3.transformer.ProgressHolder
 import androidx.media3.transformer.TransformationRequest
 import androidx.media3.transformer.Transformer
 import androidx.media3.transformer.VideoEncoderSettings
+import androidx.media3.common.util.UnstableApi
 import androidx.media3.effect.Presentation
 import dev.localcompress.videocompress.data.CompressionSettings
 import java.io.File
@@ -35,6 +36,7 @@ sealed interface TranscodeEvent {
  */
 object VideoTranscoder {
 
+    @OptIn(UnstableApi::class)
     fun transcode(
         context: Context,
         sourceUri: Uri,
@@ -65,7 +67,7 @@ object VideoTranscoder {
                     .setRequestedVideoEncoderSettings(
                         VideoEncoderSettings.Builder().setBitrate(settings.targetBitrateBps).build()
                     )
-                    .setEncoderSelector(PinnedEncoderSelector(settings.encoderName))
+                    .setVideoEncoderSelector(PinnedEncoderSelector(settings.encoderName))
                     .build()
 
                 val transformationRequest = TransformationRequest.Builder()

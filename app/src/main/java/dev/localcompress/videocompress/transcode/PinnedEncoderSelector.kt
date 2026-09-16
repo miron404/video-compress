@@ -1,6 +1,7 @@
 package dev.localcompress.videocompress.transcode
 
 import android.media.MediaCodecInfo
+import androidx.media3.common.util.UnstableApi
 import androidx.media3.transformer.EncoderSelector
 import com.google.common.collect.ImmutableList
 
@@ -10,6 +11,7 @@ import com.google.common.collect.ImmutableList
  * one Media3 judges "best". Falls back to the normal candidate list if the pinned codec has
  * disappeared (e.g. a different device) or doesn't support the requested mime type.
  */
+@OptIn(UnstableApi::class)
 class PinnedEncoderSelector(private val pinnedEncoderName: String?) : EncoderSelector {
     override fun selectEncoderInfos(mimeType: String): ImmutableList<MediaCodecInfo> {
         val defaults = EncoderSelector.DEFAULT.selectEncoderInfos(mimeType)

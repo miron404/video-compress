@@ -7,10 +7,13 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.width
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Folder
 import androidx.compose.material3.Card
+import androidx.compose.material3.DropdownMenuItem
 import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.ExposedDropdownMenu
 import androidx.compose.material3.ExposedDropdownMenuBox
 import androidx.compose.material3.ExposedDropdownMenuDefaults
 import androidx.compose.material3.Icon
@@ -30,6 +33,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.style.TextOverflow
+import androidx.compose.ui.unit.dp
 import dev.localcompress.videocompress.codec.CodecInfoProvider
 import dev.localcompress.videocompress.data.CompressionSettings
 import dev.localcompress.videocompress.data.QualityPreset
@@ -146,11 +150,11 @@ private fun CodecDropdown(
             trailingIcon = { ExposedDropdownMenuDefaults.TrailingIcon(expanded = mimeExpanded) },
             modifier = Modifier.fillMaxWidth().menuAnchor(),
         )
-        androidx.compose.material3.ExposedDropdownMenu(expanded = mimeExpanded, onDismissRequest = { mimeExpanded = false }) {
+        ExposedDropdownMenu(expanded = mimeExpanded, onDismissRequest = { mimeExpanded = false }) {
             SUPPORTED_VIDEO_MIME_TYPES.forEach { mime ->
                 val hasHw = CodecInfoProvider.recommendedVideoEncoders(mime).any { it.isHardwareAccelerated }
                 val hasAny = CodecInfoProvider.hasAnyEncoderFor(mime)
-                androidx.compose.material3.DropdownMenuItem(
+                DropdownMenuItem(
                     text = {
                         Text(videoMimeLabel(mime) + if (!hasAny) " (недоступно)" else if (hasHw) " · HW" else " · SW")
                     },
@@ -177,13 +181,13 @@ private fun CodecDropdown(
                 trailingIcon = { ExposedDropdownMenuDefaults.TrailingIcon(expanded = encoderExpanded) },
                 modifier = Modifier.fillMaxWidth().menuAnchor(),
             )
-            androidx.compose.material3.ExposedDropdownMenu(expanded = encoderExpanded, onDismissRequest = { encoderExpanded = false }) {
-                androidx.compose.material3.DropdownMenuItem(
+            ExposedDropdownMenu(expanded = encoderExpanded, onDismissRequest = { encoderExpanded = false }) {
+                DropdownMenuItem(
                     text = { Text("Авто (лучший доступный)") },
                     onClick = { encoderExpanded = false; onSelected(selectedMime, null) },
                 )
                 encoders.forEach { enc ->
-                    androidx.compose.material3.DropdownMenuItem(
+                    DropdownMenuItem(
                         text = { Text(enc.name + if (enc.isHardwareAccelerated) " · HW" else " · SW") },
                         onClick = { encoderExpanded = false; onSelected(selectedMime, enc.name) },
                     )
