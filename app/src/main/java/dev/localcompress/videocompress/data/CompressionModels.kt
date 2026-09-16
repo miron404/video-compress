@@ -1,7 +1,6 @@
 package dev.localcompress.videocompress.data
 
 import android.net.Uri
-import androidx.media3.common.MimeTypes
 import java.util.UUID
 
 enum class ResolutionPreset(val targetHeight: Int?, val label: String) {
@@ -18,19 +17,21 @@ enum class QualityPreset(val bitrateMbps: Float?, val label: String) {
     CUSTOM(null, "Свой битрейт"),
 }
 
+// Mirrors androidx.media3.common.MimeTypes' video constants as plain literals, so this data
+// layer doesn't have to opt in to Media3's @UnstableApi surface just to name a codec.
+const val MIME_VIDEO_H264 = "video/avc"
+const val MIME_VIDEO_H265 = "video/hevc"
+const val MIME_VIDEO_VP9 = "video/x-vnd.on2.vp9"
+const val MIME_VIDEO_AV1 = "video/av01"
+
 /** The handful of video mime types we let the user pick between in the UI. */
-val SUPPORTED_VIDEO_MIME_TYPES = listOf(
-    MimeTypes.VIDEO_H264,
-    MimeTypes.VIDEO_H265,
-    MimeTypes.VIDEO_VP9,
-    MimeTypes.VIDEO_AV1,
-)
+val SUPPORTED_VIDEO_MIME_TYPES = listOf(MIME_VIDEO_H264, MIME_VIDEO_H265, MIME_VIDEO_VP9, MIME_VIDEO_AV1)
 
 fun videoMimeLabel(mime: String): String = when (mime) {
-    MimeTypes.VIDEO_H264 -> "H.264 / AVC"
-    MimeTypes.VIDEO_H265 -> "H.265 / HEVC"
-    MimeTypes.VIDEO_VP9 -> "VP9"
-    MimeTypes.VIDEO_AV1 -> "AV1"
+    MIME_VIDEO_H264 -> "H.264 / AVC"
+    MIME_VIDEO_H265 -> "H.265 / HEVC"
+    MIME_VIDEO_VP9 -> "VP9"
+    MIME_VIDEO_AV1 -> "AV1"
     else -> mime
 }
 
@@ -40,7 +41,7 @@ fun videoMimeLabel(mime: String): String = when (mime) {
  * instead of letting Media3 pick the "best" hardware encoder for [videoMimeType] itself.
  */
 data class CompressionSettings(
-    val videoMimeType: String = MimeTypes.VIDEO_H265,
+    val videoMimeType: String = MIME_VIDEO_H265,
     val encoderName: String? = null,
     val resolution: ResolutionPreset = ResolutionPreset.ORIGINAL,
     val quality: QualityPreset = QualityPreset.MEDIUM,
